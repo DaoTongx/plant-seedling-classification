@@ -1,0 +1,11 @@
+# 本项目的全部依赖。
+# 有意不引入 sklearn / pandas / scipy：分层 K 折、准确率、混淆矩阵、
+# macro-F1 均在 src/plant_classifier.py 中自行实现，以减少环境差异。
+torch>=2.0
+torchvision>=0.15
+numpy>=1.24
+Pillow>=9.5
+
+# 仅在重新生成实验报告时需要（见 report/build_report_compact.py）
+# python-docx>=1.1
+# matplotlib>=3.7

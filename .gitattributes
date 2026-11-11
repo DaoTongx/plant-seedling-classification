@@ -1,0 +1,13 @@
+# 统一换行符，保证在 Windows / Linux / macOS 上克隆后一致
+* text=auto
+
+*.py    text eol=lf
+*.md    text eol=lf
+*.txt   text eol=lf
+*.ipynb text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+
+*.png   binary
+*.docx  binary
+*.csv   text eol=lf
