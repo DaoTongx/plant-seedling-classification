@@ -40,7 +40,7 @@ USABLE = 15.8
 
 # 代码仓库地址。填入后报告中会生成「1.9 代码与复现」小节；留空则跳过该节。
 # 例：GITHUB_URL = "https://github.com/<用户名>/plant-seedling-classification"
-GITHUB_URL = ""
+GITHUB_URL = "https://github.com/DaoTongx/plant-seedling-classification"
 def add_table(doc, header, rows, widths, font_size=8.8, caption=None,
               align_center_cols=None):
     """精简版表格：固定列宽、同步 tblGrid、居中。"""
