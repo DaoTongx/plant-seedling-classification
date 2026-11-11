@@ -38,7 +38,9 @@ os.makedirs(FIG_DIR, exist_ok=True)
 
 USABLE = 15.8
 
-
+# 代码仓库地址。填入后报告中会生成「1.9 代码与复现」小节；留空则跳过该节。
+# 例：GITHUB_URL = "https://github.com/<用户名>/plant-seedling-classification"
+GITHUB_URL = ""
 def add_table(doc, header, rows, widths, font_size=8.8, caption=None,
               align_center_cols=None):
     """精简版表格：固定列宽、同步 tblGrid、居中。"""
@@ -389,6 +391,18 @@ def build():
       "其三，未引入 384 高分辨率训练，可能损失叶脉级细节；其四，黑麦草与散穗黍召回率仅 83%，"
       "可考虑对易混类别单独训练二分类判别器或对易混区域做局部高分辨率裁剪；"
       "其五，集成为简单等权平均，可改为按验证表现或预测不确定性加权融合。")
+
+    # ---------------- 代码与复现（GITHUB_URL 非空时生成） ----------------
+    if GITHUB_URL:
+        H2("1.9  代码与复现")
+        P("本实验的完整代码、Notebook 与验证脚本已开源于：" + GITHUB_URL + "。"
+          "仓库仅包含代码与报告，不含数据集、训练缓存与模型权重"
+          "（受比赛规则限制，数据需自行获取）。")
+        P("为保证结论可复查，仓库提供了三类验证入口：其一，"
+          "运行 tools/verify_all.py --fast 可在不训练的前提下校验指标实现、"
+          "决策权重拟合与伪标签筛选逻辑；其二，tools/test_pipeline.py 覆盖分层划分、"
+          "TTA 视角、提交格式与 OOF 组装；其三，notebook 与 src/plant_classifier.py "
+          "为同一份源码的两个入口，可用 tools/validate_notebook.py 校验二者逐字节一致。")
 
     # ---------------- 参考文献 ----------------
     H2("参考文献")
