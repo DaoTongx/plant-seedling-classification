@@ -184,6 +184,14 @@ def build():
     r = info.add_run("五分类图像识别　|　训练 500 张（五类各 100）　|　测试 378 张　|　最佳提交成绩 0.9312")
     set_run_font(r, size=9)
 
+    # 首页题目下方给出代码仓库地址（GITHUB_URL 为空时跳过）
+    if GITHUB_URL:
+        gl = doc.add_paragraph()
+        gl.alignment = WD_ALIGN_PARAGRAPH.CENTER
+        gl.paragraph_format.space_after = Pt(6)
+        r = gl.add_run("Github库链接: " + GITHUB_URL)
+        set_run_font(r, size=9)
+
     # ===================================================================== #
     H1("第 1 章  植物分类")
 
